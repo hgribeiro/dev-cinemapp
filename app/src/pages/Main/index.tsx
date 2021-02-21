@@ -1,12 +1,22 @@
 import React from 'react';
 import { View } from 'react-native';
-import Header from '../../components/Header'
-import { Container } from './styles';
+
+import Card from '../../components/Card'
+import FooterMenu from '../../components/FooterMenu'
+import Details from '../../components/Details'
+// import Image from '../../assets/imdblogo.png';
+
+
+import { Container, SearchBar } from './styles';
 
 function Main() {
   return (
     <Container>
-      <Header></Header>
+      {/* <Logo resizeMode='contain' source={Image} /> */}
+      <SearchBar />
+      <Card></Card>
+      <FooterMenu />
+      <Details></Details>
     </Container>
   );
 }
