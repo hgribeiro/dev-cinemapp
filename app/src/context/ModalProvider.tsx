@@ -16,7 +16,7 @@ const ModalContext = createContext({} as IModalContext);
 
 export const ModalProvider: React.FC = ({ children }: any) => {
 
-  const [isDetailsOpened, setIsDetailsOpened] = useState<boolean>(true);
+  const [isDetailsOpened, setIsDetailsOpened] = useState<boolean>(false);
 
 
 

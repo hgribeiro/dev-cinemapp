@@ -10,16 +10,22 @@ const Details: React.FC = () => {
 
   const { isDetailsOpened, setIsDetailsOpened } = useModal();
 
+
+  function handleCloseModal() {
+    setIsDetailsOpened(false);
+  }
+
   return (
     <Modal
       visible={isDetailsOpened}
       transparent={false}
       animationType="fade"
+      onRequestClose={handleCloseModal}
     >
       <Container>
         <Header>
           <Logo source={Image} />
-          <TouchableOpacity onPress={() => setIsDetailsOpened(false)} >
+          <TouchableOpacity onPress={() => handleCloseModal()} >
             <Ionicons name="ios-close" color="black" size={45} />
           </TouchableOpacity>
         </Header>
