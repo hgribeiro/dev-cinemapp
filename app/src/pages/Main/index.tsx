@@ -19,9 +19,9 @@ import { Container, Form, FormGroupName, FormGroupAno, FormGrupButton, FormGrupT
 
 
 function Main() {
-  const [title, setTitle] = useState<string>()
-  const [year, setYear] = useState<string>()
-  const [type, setType] = useState<void | "episode" | "movie" | "series">()
+  const [title, setTitle] = useState<string>('')
+  const [year, setYear] = useState<string>('')
+  const [type, setType] = useState<string>('')
 
   function handleSubmit() {
     if (!title?.trim()) {
@@ -31,21 +31,23 @@ function Main() {
     Keyboard.dismiss();
     // http://181.221.118.116:8080/search
 
-    fetch('http://localhost:8080/search', {
+    fetch('http://10.0.2.2:8080/search', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        body: JSON.stringify({ title, year, type }),
       },
+      body: JSON.stringify({ title, year, type }),
     }).then((resp) => {
       if (resp.ok) {
         setTitle('');
         setType();
         setYear('');
-        console.log(resp)
+        console.log(JSON.stringify(resp))
+      } else {
+
       }
 
-    });
+    }).catch(() => Alert.alert("Erro!", "Falha ao conectar com o servidor!"))
   }
 
 

@@ -4,8 +4,11 @@ class MovieController {
     const { title, year, type, } = req.body;
 
     try {
-
-      const { data } = await api.get(`?apikey=${process.env.API_KEY}&s=${title}${year}${type}`)
+      console.log('-------------------')
+      console.log(title)
+      console.log('-------------------')
+      const { data } = await api.get(`?apikey=${process.env.API_KEY}&s=${title}&y=${year}&type=${type}`)
+      console.log(data)
       return res.status(200).json({ data })
     } catch (e) {
       console.log(e)
@@ -13,16 +16,16 @@ class MovieController {
     return res.status(200).json({ msg: "request failed" })
   }
 
-  async searchByYear(req, res) {
-    try {
-      const { data } = await api.get(`?apikey=${process.env.API_KEY}&y=${req.params.year}`)
-      return res.status(200).json({ data })
-    } catch (e) {
-      console.log(e)
-    }
-    return res.status(200).json({ msg: "request failed" })
+  //   async searchByYear(req, res) {
+  //     try {
+  //       const { data } = await api.get(`?apikey=${process.env.API_KEY}&y=${req.params.year}`)
+  //       return res.status(200).json({ data })
+  //     } catch (e) {
+  //       console.log(e)
+  //     }
+  //     return res.status(200).json({ msg: "request failed" })
 
-  }
+  //   }
 }
 
 export default new MovieController()
