@@ -3,16 +3,11 @@ import { View } from 'react-native';
 
 import { Container, Button, Label } from './styles';
 
-const FooterMenu: React.FC = () => {
+const FooterMenu: React.FC = ({ navigation }: Any) => {
 
 
   return (
-    <Container>
-      <Button  >
-        <Label>Favoritos</Label>
-      </Button>
 
-    </Container>
   );
 }
 

@@ -1,11 +1,13 @@
 import React from 'react';
 
 
-// import {FavoritesProvider} from './Favorites';
+import { MoviesProvider } from './MoviesProvider';
 import { ModalProvider } from './ModalProvider';
 
 const AppContext: React.FC = ({ children }: any) => (
-  <ModalProvider>{children}</ModalProvider>
+  <MoviesProvider>
+    <ModalProvider>{children}</ModalProvider>
+  </MoviesProvider>
 );
 
 export default AppContext;
